@@ -10,6 +10,25 @@ public class App {
     public static void main(String[] args) throws Exception {
         List<Maquina> maquinas = crearMaquinas();
 
+        MaquinaController mC = new MaquinaController();
+        System.out.println("----------- primer metodo --------------");
+        Stack<Maquina> stack = mC.filtrarPorSubred(maquinas, 150);
+
+
+        System.out.println("----------- segundo metodo --------------");
+        Set<Maquina> set = mC.ordenarPorSubred(stack);
+
+
+        System.out.println("Siguiente metodos validades en el test");
+
+
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop());
+        }
+
+        for(Maquina m:set){
+            System.out.println(m);
+        }
     }
 
     static List<Maquina> crearMaquinas() {
